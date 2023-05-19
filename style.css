@@ -1,20 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap');
+
+* {
+  font-family: Roboto;
+  font-weight: 100;
+}
+
 .Body {
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid blue;
 }
 
-.Menu {
-  border: 1px solid yellow;
+.Menu,
+.Header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.Header {
+  height: 13rem;
+}
+
+#errorLabel {
+  color: darkred;
+  font-family: Roboto, bold;
+  font-weight: 500;
+}
+
 .input {
+  height: 1rem;
+}
+
+.inputs {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sendButton {
+  margin-top: 1rem;
+  height: 2rem;
+  width: 10rem;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: white;
+  background-color: #0066cc;
+  padding: 10px 50px;
+  border: 2px solid #0066cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#sendButton:hover {
+  transition: 500ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #0066cc;
+  border: solid 2px #0066cc;
+}
+
+#textInput {
+  height: 1.5rem;
+  width: 15rem;
+  border: 0;
+  border-radius: 8px;
+  -webkit-box-shadow: 4px 4px 16px -6px #000000;
+  box-shadow: 4px 4px 16px -6px #000000;
+}
+
+*:focus {
+  outline: none;
+}
+
+.errors {
+  margin-top: 20rem;
+}
+
+.error p {
   height: 1rem;
 }
