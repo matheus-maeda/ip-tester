@@ -3,6 +3,8 @@
 * {
   font-family: Roboto;
   font-weight: 100;
+  color: #bebebe;
+  background-color: #121212;
 }
 
 .Body {
@@ -53,7 +55,8 @@
   color: white;
   background-color: #0066cc;
   padding: 10px 50px;
-  border: 2px solid #0066cc;
+  border: 0px;
+  outline: none;
   box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
   border-radius: 50px;
   transition: 1000ms;
@@ -68,9 +71,8 @@
   transition: 500ms;
   padding: 10px 50px;
   transform: translateY(-0px);
-  background-color: #fff;
+  background-color: #777;
   color: #0066cc;
-  border: solid 2px #0066cc;
 }
 
 #textInput {
@@ -78,8 +80,10 @@
   width: 15rem;
   border: 0;
   border-radius: 8px;
-  -webkit-box-shadow: 4px 4px 16px -6px #000000;
-  box-shadow: 4px 4px 16px -6px #000000;
+  -webkit-box-shadow: 4px 4px 32px -6px #000000;
+  box-shadow: 4 px 4px 32px -6px #000000;
+  background-color: #101010;
+  text-align: center;
 }
 
 *:focus {

@@ -37,6 +37,7 @@ export default function App() {
           id="textInput"
           className="input"
           onChange={handleChange}
+          placeholder="Insira aqui o Last-IP"
         ></input>
         <button onClick={handleClick} id="sendButton" className="input">
           Tentar IP
