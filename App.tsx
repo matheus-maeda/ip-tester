@@ -21,6 +21,22 @@ export default function App() {
       setError('Insira um endereço IP válido');
     }
   }
+  function handleClick1() {
+    try {
+      var urlhttps = 'https://' + window.ClipboardItem.toString();
+      console.log(window.ClipboardItem.toString());
+      window.open(urlhttps, '_blank');
+      urlhttps += ':8082';
+      window.open(urlhttps, '_blank');
+      var urlhttp = 'http://' + window.Clipboard.toString();
+      window.open(urlhttp, '_blank');
+      urlhttp += ':8082';
+      window.open(urlhttp, '_blank');
+    } catch (e) {
+      setError('Insira um endereço IP válido');
+    }
+  }
+
   return (
     <div className="Menu">
       <div className="Header">
@@ -41,6 +57,13 @@ export default function App() {
         ></input>
         <button onClick={handleClick} id="sendButton" className="input">
           Tentar IP
+        </button>
+        <button
+          onClick={handleClick1}
+          id="sendButtonClipboard"
+          className="input"
+        >
+          Utilizar IP copiado
         </button>
       </div>
       <div className="errors">

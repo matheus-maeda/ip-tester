@@ -45,7 +45,7 @@
   align-items: center;
 }
 
-#sendButton {
+#sendButton, #sendButtonClipboard {
   margin-top: 1rem;
   height: 2rem;
   width: 10rem;
@@ -67,12 +67,16 @@
   cursor: pointer;
 }
 
-#sendButton:hover {
+#sendButton:hover, #sendButtonClipboard:hover {
   transition: 500ms;
   padding: 10px 50px;
   transform: translateY(-0px);
   background-color: #777;
   color: #0066cc;
+}
+
+#sendButtonClipboard {
+  width: 14rem;
 }
 
 #textInput {
