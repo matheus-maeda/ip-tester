@@ -21,19 +21,22 @@ export default function App() {
       setError('Insira um endereço IP válido');
     }
   }
-  function handleClick1() {
+  async function handleClick1() {
     try {
-      var urlhttps = 'https://' + window.ClipboardItem.toString();
-      console.log(window.ClipboardItem.toString());
-      window.open(urlhttps, '_blank');
-      urlhttps += ':8082';
-      window.open(urlhttps, '_blank');
-      var urlhttp = 'http://' + window.Clipboard.toString();
-      window.open(urlhttp, '_blank');
-      urlhttp += ':8082';
-      window.open(urlhttp, '_blank');
-    } catch (e) {
-      setError('Insira um endereço IP válido');
+      var object = await navigator.clipboard.readText();
+    } finally {
+      try {
+        var urlhttps = 'https://' + object;
+        window.open(urlhttps, '_blank');
+        urlhttps += ':8082';
+        window.open(urlhttps, '_blank');
+        var urlhttp = 'http://' + object;
+        window.open(urlhttp, '_blank');
+        urlhttp += ':8082';
+        window.open(urlhttp, '_blank');
+      } catch (e) {
+        setError('Insira um endereço IP válido');
+      }
     }
   }
 
@@ -67,10 +70,12 @@ export default function App() {
         </button>
       </div>
       <div className="errors">
-        <p>
+        <p id="OBS">
           OBS: Caso seja a primeira vez utilizando, seu navegador pode bloquear
           a quantidade de abas que será aberta, caso isso aconteça, basta
-          liberar os pop-ups!
+          liberar os pop-ups, caso queira utilizar a função do "IP Copiado"
+          quando seu navegador pedir permissão para acessar sua Área de
+          Transferência basta liberar também!
         </p>
       </div>
     </div>
