@@ -100,8 +100,19 @@
   margin-top: 20rem;
 }
 
+.box input {
+  margin-right: 1rem;
+}
+
 .error p {
   height: 1rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
 #OBS {

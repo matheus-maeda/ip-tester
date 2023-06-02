@@ -4,6 +4,10 @@ import './style.css';
 export default function App() {
   const [message, setMessage] = React.useState('');
   const [error, setError] = React.useState(' ');
+  const [https, sethttps] = React.useState(true);
+  const [https8082, sethttps8082] = React.useState(true);
+  const [http, sethttp] = React.useState(true);
+  const [http8082, sethttp8082] = React.useState(true);
   const handleChange = (event) => {
     setMessage(event.target.value);
   };
@@ -22,22 +26,33 @@ export default function App() {
     }
   }
   async function handleClick1() {
+    console.log(https);
+    console.log(https8082);
+    console.log(http);
+    console.log(http8082);
     try {
       var object = await navigator.clipboard.readText();
     } finally {
       try {
         var urlhttps = 'https://' + object;
-        window.open(urlhttps, '_blank');
+        https ? window.open(urlhttps, '_blank') : '';
         urlhttps += ':8082';
-        window.open(urlhttps, '_blank');
+        https8082 ? window.open(urlhttps, '_blank') : '';
         var urlhttp = 'http://' + object;
-        window.open(urlhttp, '_blank');
+        http ? window.open(urlhttp, '_blank') : '';
         urlhttp += ':8082';
-        window.open(urlhttp, '_blank');
+        http8082 ? window.open(urlhttp, '_blank') : '';
       } catch (e) {
         setError('Insira um endereço IP válido');
       }
     }
+  }
+
+  function handleChangeCheckbox(option) {
+    option == 1 ? sethttps(!https) : '';
+    option == 2 ? sethttps8082(!https8082) : '';
+    option == 3 ? sethttp(!http) : '';
+    option == 4 ? sethttp8082(!http8082) : '';
   }
 
   return (
@@ -69,6 +84,26 @@ export default function App() {
           Utilizar IP copiado
         </button>
       </div>
+
+      <div className="options">
+        <div className="box" onClick={() => handleChangeCheckbox(1)}>
+          <input type="checkbox" checked={https} />
+          <span>HTTPS</span>
+        </div>
+        <div className="box" onClick={() => handleChangeCheckbox(2)}>
+          <input type="checkbox" checked={https8082} />
+          <span>HTTPS 8082</span>
+        </div>
+        <div className="box" onClick={() => handleChangeCheckbox(3)}>
+          <input type="checkbox" checked={http} />
+          <span>HTTP</span>
+        </div>
+        <div className="box" onClick={() => handleChangeCheckbox(4)}>
+          <input type="checkbox" checked={http8082} />
+          <span>HTTP 8082</span>
+        </div>
+      </div>
+
       <div className="errors">
         <p id="OBS">
           OBS: Caso seja a primeira vez utilizando, seu navegador pode bloquear
