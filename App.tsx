@@ -11,40 +11,31 @@ export default function App() {
   const handleChange = (event) => {
     setMessage(event.target.value);
   };
-  function handleClick() {
+
+  function execute(ip) {
     try {
-      var urlhttps = 'https://' + message;
-      window.open(urlhttps, '_blank');
+      var urlhttps = 'https://' + ip;
+      https ? window.open(urlhttps, '_blank') : '';
       urlhttps += ':8082';
-      window.open(urlhttps, '_blank');
-      var urlhttp = 'http://' + message;
-      window.open(urlhttp, '_blank');
+      https8082 ? window.open(urlhttps, '_blank') : '';
+      var urlhttp = 'http://' + ip;
+      http ? window.open(urlhttp, '_blank') : '';
       urlhttp += ':8082';
-      window.open(urlhttp, '_blank');
+      http8082 ? window.open(urlhttp, '_blank') : '';
     } catch (e) {
       setError('Insira um endereço IP válido');
     }
   }
+
+  function handleClick() {
+    execute(message);
+  }
+
   async function handleClick1() {
-    console.log(https);
-    console.log(https8082);
-    console.log(http);
-    console.log(http8082);
     try {
       var object = await navigator.clipboard.readText();
     } finally {
-      try {
-        var urlhttps = 'https://' + object;
-        https ? window.open(urlhttps, '_blank') : '';
-        urlhttps += ':8082';
-        https8082 ? window.open(urlhttps, '_blank') : '';
-        var urlhttp = 'http://' + object;
-        http ? window.open(urlhttp, '_blank') : '';
-        urlhttp += ':8082';
-        http8082 ? window.open(urlhttp, '_blank') : '';
-      } catch (e) {
-        setError('Insira um endereço IP válido');
-      }
+      execute(object);
     }
   }
 
