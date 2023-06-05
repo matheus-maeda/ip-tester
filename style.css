@@ -113,6 +113,7 @@
   flex-direction: column;
   margin-top: 2rem;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 
 #OBS {
